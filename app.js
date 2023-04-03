@@ -5,29 +5,44 @@ import ReactDOM from "react-dom/client";
 const head = React.createElement('h1', {}, "Hello I'm heading 1");
 
 
-//Syntax for components
+//Syntax for Functional components
 
-//Functional components
-const Component1 = () => {
-  return <h1>Component 1</h1>
-}
+const Component1 = () => (
+    <p>Component 1</p>
+);
 
 const Component2 = function() {
     return (
-        <h1>Component 2</h1>
+        <p>Component 2</p>
     )
 }
 
-// JSX
-const jsxHead = 
-    <div>
-        <h1>Hi JSX!</h1> 
-        <h2>Hello</h2>  
+const num = 30;
+const Component3 = () => (
+    <div id="wrapper">
+        <h1>Hi! I am {num} years old!</h1>  
     </div>
+)
+
+// JSX / React Element
+const jsxHead = (
+    <div>
+        <h1>This is a React Element!</h1> 
+    </div>
+);
+
+// Different ways to render component
+
+const VariousWays = (
+    <>
+        <></>
+        <Component1/>
+        <Component2></Component2>  
+        {Component3()}
+    </>
+);
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<><Component1 /><Component2 /></>);
-
-
+root.render(<>{jsxHead}{VariousWays}<Component1 /><Component2 /><Component3/></>);
 
